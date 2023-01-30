@@ -1,60 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 23:40:36 by chabrune          #+#    #+#             */
-/*   Updated: 2023/01/25 18:54:38 by chabrune         ###   ########.fr       */
+/*   Created: 2023/01/25 18:46:21 by chabrune          #+#    #+#             */
+/*   Updated: 2023/01/25 18:54:23 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push_a(int *a, int *i, int *b, int *j)
+void rotate_a(int *a, int *i)
 {
-    if (*j >= 0)
+    if (*i > 0)
     {
+        int temp;
         int k;
-        k = *i;
-        while(k > 0)
-        {
-            a[k] = a[k - 1];
-            k--;
-        }
-        a[0] = b[0];
-        k = 0;
-        while(k < *j)
-        {
-            b[k] = b[k + 1];
-            k++;
-        }
-        *i = *i + 1;
-        *j = *j - 1;
-    }
-}
 
-
-void push_b(int *a, int *i, int *b, int *j)
-{
-    if (*i >= 0)
-    {
-        int k;
-        k = *j;
-        while(k > 0)
-        {
-            b[k] = b[k - 1];
-            k--;
-        }
-        b[0] = a[0];
+        temp = a[0];
         k = 0;
         while(k < *i)
         {
             a[k] = a[k + 1];
             k++;
         }
-        *j = *j + 1;
-        *i = *i - 1;
+        a[*i - 1] = temp;
     }
+}
+
+void rotate_b(int *b, int *j)
+{
+    if (*j > 0)
+    {
+        int temp;
+        int k;
+
+        k = 0;
+        temp = b[0];
+        while(k < *j)
+        {
+            b[k] = b[k + 1];
+            k++;
+        }
+        b[*j - 1] = temp;
+    }
+}
+
+void rotate_both(int *a, int *i, int *b, int *j)
+{
+    rotate_a(a, i);
+    rotate_b(b, j);
 }
