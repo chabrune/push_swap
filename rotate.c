@@ -6,7 +6,7 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:46:21 by chabrune          #+#    #+#             */
-/*   Updated: 2023/01/25 18:54:23 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:59:18 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void rotate_a(int *a, int *i)
         }
         a[*i - 1] = temp;
     }
+    ft_printf("ra\n");
 }
 
 void rotate_b(int *b, int *j)
@@ -46,10 +47,12 @@ void rotate_b(int *b, int *j)
         }
         b[*j - 1] = temp;
     }
+    ft_printf("rb\n");
 }
 
 void rotate_both(int *a, int *i, int *b, int *j)
 {
     rotate_a(a, i);
     rotate_b(b, j);
+    ft_printf("rr\n");
 }

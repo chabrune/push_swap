@@ -6,7 +6,7 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:40:36 by chabrune          #+#    #+#             */
-/*   Updated: 2023/01/25 18:54:38 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:59:03 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void push_a(int *a, int *i, int *b, int *j)
         *i = *i + 1;
         *j = *j - 1;
     }
+    ft_printf("pa\n");
 }
 
 
@@ -57,4 +58,5 @@ void push_b(int *a, int *i, int *b, int *j)
         *j = *j + 1;
         *i = *i - 1;
     }
+    ft_printf("pb\n");
 }
