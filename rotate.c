@@ -6,53 +6,51 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:46:21 by chabrune          #+#    #+#             */
-/*   Updated: 2023/01/30 13:59:18 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:15:37 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rotate_a(int *a, int *i)
+void rotate_a(t_stack *a)
 {
-    if (*i > 0)
+    t_val temp;
+    int k;
+    if (a->len > 0)
     {
-        int temp;
-        int k;
-
-        temp = a[0];
+        temp = a->val[0];
         k = 0;
-        while(k < *i)
+        while(k < a->len)
         {
-            a[k] = a[k + 1];
+            a->val[k] = a->val[k + 1];
             k++;
         }
-        a[*i - 1] = temp;
+        a->val[a->len - 1] = temp;
     }
     ft_printf("ra\n");
 }
 
-void rotate_b(int *b, int *j)
+void rotate_b(t_stack *b)
 {
-    if (*j > 0)
+    t_val temp;
+    int k;
+    if (b->len > 0)
     {
-        int temp;
-        int k;
-
         k = 0;
-        temp = b[0];
-        while(k < *j)
+        temp = b->val[0];
+        while(k < b->len)
         {
-            b[k] = b[k + 1];
+            b->val[k] = b->val[k + 1];
             k++;
         }
-        b[*j - 1] = temp;
+        b->val[b->len - 1] = temp;
     }
     ft_printf("rb\n");
 }
 
-void rotate_both(int *a, int *i, int *b, int *j)
+void rotate_both(t_stack *a, t_stack *b)
 {
-    rotate_a(a, i);
-    rotate_b(b, j);
+    rotate_a(a);
+    rotate_b(b);
     ft_printf("rr\n");
 }

@@ -6,57 +6,57 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:40:36 by chabrune          #+#    #+#             */
-/*   Updated: 2023/01/30 13:59:03 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/01/31 15:51:11 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push_a(int *a, int *i, int *b, int *j)
+void push_a(t_stack *a, t_stack *b)
 {
-    if (*j >= 0)
+    int k;
+    k = a->len;
+    if (b->len >= 0)
     {
-        int k;
-        k = *i;
         while(k > 0)
         {
-            a[k] = a[k - 1];
+            a->val[k] = a->val[k - 1];
             k--;
         }
-        a[0] = b[0];
+        a->val[0] = b->val[0];
         k = 0;
-        while(k < *j)
+        while(k < b->len)
         {
-            b[k] = b[k + 1];
+            b->val[k] =  b->val[k + 1];
             k++;
         }
-        *i = *i + 1;
-        *j = *j - 1;
+        a->len = a->len + 1;
+        b->len = b->len - 1;
     }
     ft_printf("pa\n");
 }
 
 
-void push_b(int *a, int *i, int *b, int *j)
+void push_b(t_stack *a, t_stack *b)
 {
-    if (*i >= 0)
+    int k;
+    k = b->len;
+    if (a->len >= 0)
     {
-        int k;
-        k = *j;
         while(k > 0)
         {
-            b[k] = b[k - 1];
+            b->val[k] = b->val[k - 1];
             k--;
         }
-        b[0] = a[0];
+        b->val[0] = a->val[0];
         k = 0;
-        while(k < *i)
+        while(k < a->len)
         {
-            a[k] = a[k + 1];
+            a->val[k] = a->val[k + 1];
             k++;
         }
-        *j = *j + 1;
-        *i = *i - 1;
+        b->len = b->len + 1;
+        a->len = a->len - 1;
     }
     ft_printf("pb\n");
 }

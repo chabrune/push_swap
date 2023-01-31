@@ -6,7 +6,7 @@
 #    By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/13 16:34:11 by chabrune          #+#    #+#              #
-#    Updated: 2023/01/30 12:39:42 by chabrune         ###   ########.fr        #
+#    Updated: 2023/01/31 16:19:14 by chabrune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS       	=	swap.c \
 				push.c \
 				reverse_rotate.c \
 				rotate.c \
+				error_and_fill.c \
 
 
 #######################################################

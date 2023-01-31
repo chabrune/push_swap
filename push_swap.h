@@ -8,7 +8,7 @@
 
 typedef struct s_val
 {
-    int value;
+	int value;
     int index;
 }   t_val;
 
@@ -18,20 +18,20 @@ typedef struct s_stack
     int len;
 }   t_stack;
 
-void push_a(int *a, int *i, int *b, int *j);
-void push_b(int *a, int *i, int *b, int *j);
-void reverse_rotate_a(int *a, int *i);
-void reverse_rotate_b(int *b, int *j);
-void reverse_rotate_both(int *a, int *i, int *b, int *j);
-void rotate_a(int *a, int *i);
-void rotate_b(int *b, int *j);
-void rotate_both(int *a, int *i, int *b, int *j);
-void swap_a(int *a, int *i);
-void swap_b(int *b, int *j);
-void swap_both(int *a, int *i, int *b, int *j);
-int ft_check_int(char *str);
-int ft_fill_split(char *str, t_stack *stack);
-void    ft_fill_arg(char **strs, t_stack *stack);
-int    ft_check_double(t_stack stack);
+void	push_a(t_stack *a, t_stack *b);
+void	push_b(t_stack *a, t_stack *b);
+void	reverse_rotate_a(t_stack *a);
+void	reverse_rotate_b(t_stack *b);
+void	reverse_rotate_both(t_stack *a, t_stack *b);
+void	rotate_a(t_stack *a);
+void	rotate_b(t_stack *b);
+void	rotate_both(t_stack *a, t_stack *b);
+void	swap_a(t_stack *a);
+void	swap_b(t_stack *b);
+void	swap_both(t_stack *a, t_stack *b);
+int		ft_check_int(char *str);
+int		ft_fill_split(char *str, t_stack *a, t_stack *b);
+void	ft_fill_arg(char **strs, t_stack *a, t_stack *b, int argc);
+int		ft_check_double(t_stack *stack);
 
 #endif 
