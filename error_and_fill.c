@@ -6,7 +6,7 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:17:01 by chabrune          #+#    #+#             */
-/*   Updated: 2023/01/31 16:18:02 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/02/04 18:46:44 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int ft_fill_split(char *str, t_stack *a, t_stack *b)
         if (ft_check_int(args[i]) == 1)
             return (-1);
         a->val[i].value = ft_atoi(args[i]);
-        a->val[i].index = 0;
+        a->val[i].index = 1;
         i++;
     }
     return(0);
@@ -57,7 +57,10 @@ void    ft_fill_arg(char **strs, t_stack *a, t_stack *b, int argc)
     b->val = ft_calloc(sizeof(t_val), argc - 1);
     a->len = argc - 1;
     while(strs[++i])
-        a->val[j++].value = ft_atoi(strs[i]);
+    {
+        a->val[j].value = ft_atoi(strs[i]);
+        a->val[j++].index = 1;
+    }
 }
 
 int    ft_check_double(t_stack *stack)
