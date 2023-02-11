@@ -18,6 +18,7 @@ typedef struct s_stack
 	int		len;
 }			t_stack;
 
+int			ft_atoi_push_swap(const char *str);
 void		ft_find_index(t_stack *a);
 void		ola_pepito(t_stack *a, t_stack *b);
 void		ft_sort_rotate_five(t_stack *a, t_stack *b);
@@ -43,7 +44,7 @@ void		swap_b(t_stack *b);
 void		swap_both(t_stack *a, t_stack *b);
 int			ft_check_int(char *str);
 int			ft_fill_split(char *str, t_stack *a, t_stack *b);
-void		ft_fill_arg(char **strs, t_stack *a, t_stack *b, int argc);
+int			ft_fill_arg(char **strs, t_stack *a, t_stack *b, int argc);
 int			ft_check_double(t_stack *stack);
 
 #endif

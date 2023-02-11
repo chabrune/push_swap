@@ -6,7 +6,7 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 16:50:14 by chabrune          #+#    #+#             */
-/*   Updated: 2023/02/11 15:28:54 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:21:02 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	main(int argc, char **argv)
 				return (write(2, "Error\n", 6));
 		}
 		else
-			ft_fill_arg(argv, &a, &b, argc);
+			if	(ft_fill_arg(argv, &a, &b, argc) == 1)
+				return (write(2, "Error\n", 6));
 		if (ft_check_double(&a) == 1)
 			return (write(2, "Error\n", 6));
 		ft_find_index(&a);

@@ -6,7 +6,7 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:58:37 by chabrune          #+#    #+#             */
-/*   Updated: 2023/02/11 15:07:52 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:12:20 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_sort_rotate_four(t_stack *a, t_stack *b)
 		else
 			rotate_a(a);
 	}
-	ft_sort_stack_three(a, b, 1);
+	ft_sort_stack_three(a, 1);
 	push_a(a, b);
 }
 
@@ -34,7 +34,7 @@ void	ft_sort_reverse_rotate_four(t_stack *a, t_stack *b)
 		else
 			reverse_rotate_a(a);
 	}
-	ft_sort_stack_three(a, b, 1);
+	ft_sort_stack_three(a, 1);
 	push_a(a, b);
 }
 
