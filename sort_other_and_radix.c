@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 void	ft_sort_two(t_stack *a)
 {
 	if (a->val[0].index == 2)

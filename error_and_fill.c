@@ -6,7 +6,7 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:17:01 by chabrune          #+#    #+#             */
-/*   Updated: 2023/02/11 16:23:35 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/02/15 23:34:15 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_check_int(char *str)
 	return (1);
 }
 
+
 int	ft_fill_split(char *str, t_stack *a, t_stack *b)
 {
 	int		i;
@@ -34,20 +35,24 @@ int	ft_fill_split(char *str, t_stack *a, t_stack *b)
 	i = 0;
 	args = ft_split(str, ' ', &a->len);
 	a->val = ft_calloc(sizeof(t_val), a->len);
-	if (!a)
-		return (1);
 	b->val = ft_calloc(sizeof(t_val), a->len);
-	if (!b)
-		return (1);
+	if (!a || !b)
+	{
+		ft_free_split_ta_soeur(args);
+		ft_free_toute_ta_famille(a, b);
+		return(1);
+	}
 	while (args[i])
 	{
 		if (ft_check_int(args[i]) == 1)
-			return (1);
-		a->val[i].value = ft_atoi_push_swap(args[i]);
+			ft_free_toute_ta_famille(a, b);
+		a->val[i].value = ft_atoi_push_swap(args[i], a, b);
 		a->val[i].index = 1;
 		i++;
 	}
-	return (0);
+	b->len = 0;
+	ft_free_split_ta_soeur(args);
+	return(0);
 }
 
 int	ft_fill_arg(char **strs, t_stack *a, t_stack *b, int argc)
@@ -66,9 +71,10 @@ int	ft_fill_arg(char **strs, t_stack *a, t_stack *b, int argc)
 	a->len = argc - 1;
 	while (strs[++i])
 	{
-		a->val[j].value = ft_atoi_push_swap(strs[i]);
+		a->val[j].value = ft_atoi_push_swap(strs[i], a, b);
 		a->val[j++].index = 1;
 	}
+	b->len = 0;
 	return(0);
 }
 
