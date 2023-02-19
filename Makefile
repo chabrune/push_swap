@@ -6,7 +6,7 @@
 #    By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/13 16:34:11 by chabrune          #+#    #+#              #
-#    Updated: 2023/02/11 15:24:50 by chabrune         ###   ########.fr        #
+#    Updated: 2023/02/19 15:27:11 by chabrune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SRCS       	=	swap.c \
 				sort_five.c \
 				sort_four.c \
 				sort_other_and_radix.c \
-				utils.c
+				utils.c \
+				all_free_ft.c
 
 
 #######################################################

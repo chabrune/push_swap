@@ -28,10 +28,10 @@ int	ft_check_int(char *str)
 
 void	ft_free_split(char **split)
 {
-	int j;
+	int	j;
 
 	j = -1;
-	if(split)
+	if (split)
 	{
 		while (split[++j])
 			free(split[j]);
@@ -50,18 +50,18 @@ int	ft_fill_split(char *str, t_stack *a, t_stack *b)
 	a->val = ft_calloc(sizeof(t_val), a->len);
 	b->val = ft_calloc(sizeof(t_val), a->len);
 	if (!a || !b)
-		return(1);
+		return (1);
 	while (args[i])
 	{
 		if (ft_check_int(args[i]) == 1)
-			return(1);
+			return (1);
 		a->val[i].value = ft_atoi_push_swap(args[i], a, b, args);
 		a->val[i].index = 1;
 		i++;
 	}
 	b->len = 0;
 	ft_free_split(args);
-	return(0);
+	return (0);
 }
 
 int	ft_fill_arg(char **strs, t_stack *a, t_stack *b, int argc)
@@ -82,7 +82,7 @@ int	ft_fill_arg(char **strs, t_stack *a, t_stack *b, int argc)
 		a->val[j++].index = 1;
 	}
 	b->len = 0;
-	return(0);
+	return (0);
 }
 
 int	ft_check_double(t_stack *stack)

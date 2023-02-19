@@ -6,7 +6,7 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:24:10 by chabrune          #+#    #+#             */
-/*   Updated: 2023/02/17 00:50:22 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:29:30 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void	ft_find_index(t_stack *a)
 	}
 }
 
-void    ft_len_stack(t_stack *a, t_stack *b)
+void	ft_len_stack(t_stack *a, t_stack *b)
 {
-    if (a->len == 3)
-        ft_sort_stack_three(a, 0);
-    else if (a->len == 5)
+	if (a->len == 3)
+		ft_sort_stack_three(a, 0);
+	else if (a->len == 5)
 		find_best_move_five(a, b);
 	else if (a->len == 2)
 		ft_sort_two(a);
@@ -66,25 +66,15 @@ int	ft_already_sorted(t_stack *a)
 
 int	ft_entier_max(long sign, long ret)
 {
-	if(sign * ret > 2147483647 || sign * ret < -2147483648)
-		return(1);
+	if (sign * ret > 2147483647 || sign * ret < -2147483648)
+		return (1);
 	else
-		return(0);
-}
-
-void	ft_free_total(t_stack *a, t_stack *b, char **split)
-{
-	if(split)
-	ft_free_split(split);
-	free(a->val);
-	free(b->val);
-	write(2, "Error\n", 6);
-	exit(1);
+		return (0);
 }
 
 int	ft_atoi_push_swap(const char *str, t_stack *a, t_stack *b, char **split)
 {
-	int	sign;
+	int		sign;
 	long	i;
 	long	ret;
 
@@ -104,7 +94,7 @@ int	ft_atoi_push_swap(const char *str, t_stack *a, t_stack *b, char **split)
 		ret = ret * 10 + (str[i] - 48);
 		i++;
 	}
-	if(ft_entier_max(sign, ret) == 1)
+	if (ft_entier_max(sign, ret) == 1)
 		ft_free_total(a, b, split);
 	return (ret * sign);
 }
