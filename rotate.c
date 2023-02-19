@@ -6,7 +6,7 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:46:21 by chabrune          #+#    #+#             */
-/*   Updated: 2023/02/11 15:08:13 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:09:33 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	rotate_a(t_stack *a)
 	{
 		temp = a->val[0];
 		k = 0;
-		while (k < a->len)
+		while (k < a->len - 1)
 		{
 			a->val[k] = a->val[k + 1];
 			k++;

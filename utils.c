@@ -6,7 +6,7 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:24:10 by chabrune          #+#    #+#             */
-/*   Updated: 2023/02/11 16:23:17 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:50:22 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,29 @@ int	ft_already_sorted(t_stack *a)
 	return (fopa);
 }
 
-int	ft_atoi_push_swap(const char *str)
+int	ft_entier_max(long sign, long ret)
+{
+	if(sign * ret > 2147483647 || sign * ret < -2147483648)
+		return(1);
+	else
+		return(0);
+}
+
+void	ft_free_total(t_stack *a, t_stack *b, char **split)
+{
+	if(split)
+	ft_free_split(split);
+	free(a->val);
+	free(b->val);
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
+int	ft_atoi_push_swap(const char *str, t_stack *a, t_stack *b, char **split)
 {
 	int	sign;
-	int	i;
-	int	ret;
+	long	i;
+	long	ret;
 
 	ret = 0;
 	sign = 1;
@@ -86,5 +104,7 @@ int	ft_atoi_push_swap(const char *str)
 		ret = ret * 10 + (str[i] - 48);
 		i++;
 	}
+	if(ft_entier_max(sign, ret) == 1)
+		ft_free_total(a, b, split);
 	return (ret * sign);
 }

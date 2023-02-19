@@ -18,9 +18,9 @@ typedef struct s_stack
 	int		len;
 }			t_stack;
 
-void		ft_free_split_ta_soeur(char **boireuncoup);
-void		ft_free_toute_ta_famille(t_stack *a, t_stack *b);
-int			ft_atoi_push_swap(const char *str, t_stack *a, t_stack *b);
+void		ft_free_split(char **split);
+void		ft_free_stack(t_stack *a, t_stack *b);
+int			ft_atoi_push_swap(const char *str, t_stack *a, t_stack *b, char **split);
 void		ft_find_index(t_stack *a);
 void		ola_pepito(t_stack *a, t_stack *b);
 void		ft_sort_rotate_five(t_stack *a, t_stack *b);

@@ -6,35 +6,30 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 16:50:14 by chabrune          #+#    #+#             */
-/*   Updated: 2023/02/16 13:05:59 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:55:00 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-void	ft_free_toute_ta_famille(t_stack *a, t_stack *b)
+void	ft_free_stack(t_stack *a, t_stack *b)
 {
-	if(a && b)
-	{
+	if(a->val)
 		free(a->val);
+	if(b->val)
 		free(b->val);
-		a = NULL;
-		b = NULL;
-	}
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
-void	ft_free_split_ta_soeur(char **boireuncoup)
+void	ft_clean_end(t_stack *a, t_stack *b)
 {
-	int j;
-
-	j = 0;
-	while(boireuncoup[j])
-	{
-		free(boireuncoup[j]);
-		j++;
-	}
-	free(boireuncoup);
+	if(a->val)
+		free(a->val);
+	if(b->val)
+		free(b->val);
+	exit(1);
 }
 
 int	main(int argc, char **argv)
@@ -47,13 +42,13 @@ int	main(int argc, char **argv)
 		if (argc == 2)
 		{
 			if (ft_fill_split(argv[1], &a, &b) == 1)
-				return(write(2, "Error\n", 6));
+				ft_free_stack(&a, &b);
 		}
 		else
 			if	(ft_fill_arg(argv, &a, &b, argc) == 1)
-				ft_free_toute_ta_famille(&a, &b);
+				ft_free_stack(&a, &b);
 		if (ft_check_double(&a) == 1)
-			ft_free_toute_ta_famille(&a, &b);
+			ft_free_stack(&a, &b);
 		ft_find_index(&a);
 		if (ft_already_sorted(&a) == 0)
 			return (0);
@@ -61,7 +56,7 @@ int	main(int argc, char **argv)
 			ft_len_stack(&a, &b);
 		else
 			ola_pepito(&a, &b);
-		ft_free_toute_ta_famille(&a, &b);
+		ft_clean_end(&a, &b);
 	}
 	return (0);
 }
