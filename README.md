@@ -34,15 +34,6 @@ Utilisation de l'algorithme **Radix Sort** pour optimiser le tri :
 - **100 nombres** : < 700 opérations
 - **500 nombres** : < 5500 opérations
 
-## ⚙️ Compilation
-
-```bash
-make        # Compile le programme
-make clean  # Nettoie les fichiers objets
-make fclean # Nettoie tout
-make re     # Recompile
-```
-
 ## 🔍 Utilisation
 
 ```bash
